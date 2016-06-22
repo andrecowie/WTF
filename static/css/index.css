@@ -1,0 +1,27 @@
+@media all {
+    body {
+        background-color: black;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+
+    .main {
+        position: relative;
+        width: 10%;
+        height: 10%;
+        margin: 20% 45%;
+        opacity: 1;
+    }
+    img.main:hover
+    {
+        opacity: .2;
+    }
+	
+    input:focus{
+	outline: none;
+	border: 1px solid white;
+	box-shadow: 0 0 3px;
+    }
+
+}
