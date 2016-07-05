@@ -1,9 +1,14 @@
 setTimeout(function(){
 		$(".element").typed({
-		strings:["Hi, i'm Andre and your cute.", "You should leave me your details", "Or just leave me a message..."],
-		showCursor: false,
-		typeSpeed: 50
-		});	
+		    strings: ["heyyy,"],
+		    backDelay: 500,
+            typeSpeed: 30,
+            backSpeed: 30,
+            startDelay: 1500,
+            loop: false,
+            loopCount: false,
+            showCursor: false
+        });
 	}
 , 3000);
 

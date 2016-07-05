@@ -41,22 +41,14 @@ def hello():
 @app.route('/mate', methods=['GET', 'POST'])
 def genericmate():
     if request.method == 'GET':
-        pass
+        return render_template("mate.html")
     elif request.method == 'POST':
-        pass
-
-
-@app.route('/mate/<friend>', methods=['GET', 'POST'])
-def realmate():
-    if request.method == 'GET':
-        pass
-    elif request.method == 'POST':
-        pass
+        message = request.form('theMessage')
 
 
 @app.route('/plan')
 def dosomething():
-    pass
+    return render_template('plan.html')
 
 
 @app.route('/working', methods=['GET', 'POST'])

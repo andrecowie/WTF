@@ -6,7 +6,7 @@ $(document).ready(function() {
 
     function myMessage(){
         $('#story').typed({
-            strings: ["Hello.", "There is something stopping humanity from being totally equal.","I believe the best future for us can be achieved by trying our hardest collectively to minimize the two biggest problems we face in our society.","Greed.","and","Scarcity.","The smaller these problems become, the more equal we will become collectively.","How can we make these problems smaller?"],
+            strings: ["Hello.", "","I believe the best future for us can be achieved by trying our hardest collectively to minimize the two biggest problems we face in our society.","Greed.","and","Scarcity.","The smaller these problems become, the more equal we will become collectively.","How can we make these problems smaller?"],
             backDelay: 500,
             typeSpeed: 30,
             backSpeed: 30,
