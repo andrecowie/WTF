@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    mypages = {'ur cute': 'cute', 'utopia': 'plan', 'an employer': 'working', 'me': 'aka', 'friend': 'mate'}
+    mypages = {'new zealand' : 'kiwiland', 'NZ' : 'kiwiland', 'ur cute': 'cute', 'utopia': 'plan', 'an employer': 'working', 'me': 'aka', 'friend': 'mate'}
     if request.method == 'GET':
         return render_template('index.html')
     elif request.method == 'POST':
@@ -37,6 +37,9 @@ def hello():
         message = request.form['theNumber']
         return "U R Fabulous"
 
+@app.route('kiwiland', methods=['GET'])
+def progression():
+	return render_template('kiwiland.html')
 
 @app.route('/mate', methods=['GET', 'POST'])
 def genericmate():
