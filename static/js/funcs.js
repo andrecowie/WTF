@@ -1,6 +1,6 @@
 setTimeout(function(){
 		$(".element").typed({
-		    strings: ["heyyy,"],
+		    strings: ["Heyyy, your cute.", "And i'm shy :3", "If you wanna get to know me..."],
 		    backDelay: 500,
             typeSpeed: 30,
             backSpeed: 30,
@@ -10,11 +10,11 @@ setTimeout(function(){
             showCursor: false
         });
 	}
-, 3000);
+, 1000);
 
 setTimeout(function getNumber(){
 	var f = document.createElement("form");
-	f.setAttribute('action',"/hello");
+	f.setAttribute('action',"/cute");
 	f.setAttribute('method',"post");
 	f.style.background = "black";
 	f.setAttribute('id', "formsend");	
@@ -32,15 +32,15 @@ setTimeout(function getNumber(){
 	j.setAttribute('placeholder', "number");
 	j.setAttribute('name', "thePhone");
 	j.style.background = "black";
-        j.style.color = "white";
-        j.style.border = "0";
+	j.style.color = "white";
+	j.style.border = "0";
 	var k = document.createElement("input");
-        k.setAttribute('type',"text");
-        k.setAttribute('placeholder', "message");
-        k.setAttribute('name', "theMessage");
-        k.style.background = "black";
-        k.style.color = "white";
-        k.style.border = "0";
+	k.setAttribute('type',"text");
+	k.setAttribute('placeholder', "message");
+	k.setAttribute('name', "theMessage");
+	k.style.background = "black";
+	k.style.color = "white";
+	k.style.border = "0";
 	var l = document.createElement("input");
 	l.setAttribute('type', "submit");
 	l.style.display = "none";
@@ -49,4 +49,4 @@ setTimeout(function getNumber(){
 	f.appendChild(k);
 	f.appendChild(l);
 	document.getElementsByTagName('body')[0].appendChild(f);
-}, 20000);
+}, 11000);

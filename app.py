@@ -7,7 +7,8 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    mypages = {'new zealand' : 'kiwiland', 'NZ' : 'kiwiland', 'ur cute': 'cute', 'utopia': 'plan', 'an employer': 'working', 'me': 'aka', 'friend': 'mate'}
+    mypages = {'new zealand': 'kiwiland', 'nz': 'kiwiland', 'ur cute': 'cute', 'utopia': 'plan',
+               'an employer': 'working', 'me': 'aka', 'friend': 'mate'}
     if request.method == 'GET':
         return render_template('index.html')
     elif request.method == 'POST':
@@ -17,7 +18,7 @@ def index():
                 return redirect('/' + mypages[response.lower()[:6]] + '/' + response.lower()[7:])
             return redirect('/' + mypages[response.lower()])
         else:
-            return redirect('/home')
+            return redirect(url_for('home'))
     else:
         return 'Unsupported method.'
 
@@ -34,12 +35,16 @@ def hello():
     elif request.method == 'POST':
         name = request.form['theName']
         number = request.form['theNumber']
-        message = request.form['theNumber']
-        return "U R Fabulous"
+        message = request.form['theMessage']
+        f = open('cuties.txt', 'a')
+        f.write(name+number+message)
+        return redirect(url_for('index'))
 
-@app.route('kiwiland', methods=['GET'])
+
+@app.route('/kiwiland', methods=['GET'])
 def progression():
-	return render_template('kiwiland.html')
+    return render_template('kiwiland.html')
+
 
 @app.route('/mate', methods=['GET', 'POST'])
 def genericmate():
@@ -57,7 +62,7 @@ def dosomething():
 @app.route('/working', methods=['GET', 'POST'])
 def uwantme():
     if request.method == 'GET':
-        pass
+        return render_template('working.html')
     elif request.method == 'POST':
         pass
 

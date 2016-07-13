@@ -1,0 +1,118 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+p{
+    color: #ffffff;
+    text-align: center;
+}
+
+li{
+    display: block;
+    color: #ffffff;
+}
+
+h4{
+    color: #ffffff;
+    font-family: Hack;
+}
+div.header{
+        opacity:0;
+}
+#rant{
+    opacity:0;
+}
+#myfirstpoints{
+    opacity:0;
+}
+#now{
+    opacity:0;
+}
+#ranting{
+    opacity:0;
+}
+
+@media (min-width: 1280px) {
+    body {
+        background-color: #000000;
+        text-align: center;
+        font-size: 1em;
+    }
+
+    .header h1.wtf {
+        position: relative;
+        opacity: ;
+        color: #ffffff;
+        font-family: Hack;
+        line-height: 80%;
+        font-size: 3em;
+        padding: 0.5em;
+    }
+
+    .content{
+        position: relative;
+        text-align: center;
+        opacity: 1;
+        display: inline-block;
+        width: 80%;
+        font-family: 'Open Sans Condensed';
+        height: 100%;
+    }
+}
+
+@media (max-width: 600px){
+body {
+        background-color: #000000;
+        text-align: center;
+        font-size: 1em;
+    }
+
+    .header h1.wtf {
+        position: relative;
+        opacity: 1;
+        color: #ffffff;
+        font-family: Hack;
+        line-height: 80%;
+        font-size: 3em;
+        padding: 0.5em;
+    }
+
+    .content{
+        position: relative;
+        text-align: center;
+        opacity: 1;
+        display: inline-block;
+        width: 80%;
+        font-family: 'Open Sans Condensed';
+        height: 100%;
+    }
+}
+
+@media (max-width: 1280px){
+    body {
+        background-color: #000000;
+        text-align: center;
+        font-size: 1em;
+    }
+
+    .header h1.wtf {
+        position: relative;
+        padding: 0.5em;
+        opacity: 1;
+        color: #ffffff;
+        font-family: Hack;
+        line-height: 80%;
+        font-size: 3em;
+    }
+
+    .content{
+        position: relative;
+        text-align: center;
+        opacity: 1;
+        display: inline-block;
+        width: 80%;
+        font-family: 'Open Sans Condensed';
+        height: 100%;
+    }
+}
+
