@@ -20,8 +20,8 @@ body {
 }
 div.shadow{
 	position: absolute;
-	max-width: 45%;
-	max-height: 45%;
+	max-width: 30%;
+	max-height: 30%;
 	top: 50%;
 	left: 50%;
 	overflow: visible;
