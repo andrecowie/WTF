@@ -3,24 +3,24 @@
  */
 $(document).ready(function() {
     $('div.header').animate({opacity:"+1"}, 4000);
-
     function myMessage(){
         $('#story').typed({
-            strings: ["Hello.", "","I believe the best future for us can be achieved by trying our hardest collectively to minimize the two biggest problems we face in our society.","Greed.","and","Scarcity.","The smaller these problems become, the more equal we will become collectively.","How can we make these problems smaller?"],
+            strings: ["Hello.", "This website relates to my interests, goals and dreams.<br>I believe things will change, for the better.<br>However first holistically we need to make a change.<br>In our view of life and individual situations.<br>We need to aim for presence and unity.<br>And remove the effects we feel from greed and scarcity combined.<br>Transparency and equality should come hand in hand.<br>We should think of the most ethical solution to overproduction and work locally.","To be continued..." ],
             backDelay: 500,
-            typeSpeed: 30,
-            backSpeed: 30,
+            typeSpeed: 46,
+            backSpeed: 0.2,
             startDelay: 1500,
             loop: false,
             loopCount: false,
-            showCursor: false
+            showCursor: true
         });
     };
 
-    function startMessage(){
-        $('.content').animate({opacity:"+1"}, 2000);
-        setTimeout(myMessage, 3000);
-	setTimeout(inputPlease, 55000);
+    function myMan(){
+      $('.glimpse').animate({opacity:"+1"}, 4000);
+      $('.glimpse').animate({opacity:"-1"}, 2000);
+      var man = document.getElementsByClassName('img.glimpse');
+      man.parentNode.removeChild(man);
     };
 
     function inputPlease(){
@@ -39,6 +39,14 @@ $(document).ready(function() {
 	y.style.textAlign = "center";
         x.appendChild(y);
         document.getElementsByTagName('body')[0].appendChild(x);
+    };
+
+    function startMessage(){
+        $('.content').animate({opacity:"+1"}, 2000);
+        setTimeout(myMessage, 3000);
+        setTimeout(myMan, 25000)
+	    setTimeout(inputPlease, 55000);
+
     };
 
     setTimeout(startMessage, 3000);
