@@ -86,6 +86,12 @@
     div.header{
         opacity:0;
     }
+    .glimpse{
+        position: fixed;
+        margin-left: 26%;
+	margin-top: 5%;
+    }
+
 
     .header h1.wtf {
         position: relative;
@@ -145,7 +151,11 @@
         text-align: center;
         font-size: 1.5em;
     }
-
+    .glimpse{
+        position: fixed;
+        margin-left: 46%;
+    }
+ 
     div.header{
         opacity:0;
     }
