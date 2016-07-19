@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    mypages = {'new zealand': 'kiwiland', 'nz': 'kiwiland', 'ur cute': 'cute', 'utopia': 'plan',
+    mypages = {'nand':'goodchat','new zealand': 'kiwiland', 'nz': 'kiwiland', 'ur cute': 'cute', 'utopia': 'plan',
                'an employer': 'working', 'me': 'aka', 'friend': 'mate'}
     if request.method == 'GET':
         return render_template('index.html')
@@ -22,6 +22,9 @@ def index():
     else:
         return 'Unsupported method.'
 
+@app.route('/goodchat')
+def nand():
+	return "I enjoyed our chat and I hope we get the opportunity to discuss these big problems and big solutions! As students and lecturers our only goal should be to improve the amount both lecturers and students can learn. The bigger question is how..."
 
 @app.route('/home', methods=['GET', 'POST'])
 def home():
