@@ -23,7 +23,7 @@ def index():
         return 'Unsupported method.'
 
 
-@app.route('/home', methods)
+@app.route('/home', methods=['GET', 'POST'])
 def home():
     return render_template('home.html')
 
