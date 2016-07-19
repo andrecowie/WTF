@@ -3,18 +3,23 @@
     padding: 0;
 }
 .glimpse{
-    max-width: 33%;
+    max-width: 22%;
     height: auto;
     opacity:0;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1280px) {
     body {
         background-color: #000000;
         text-align: center;
         font-size: 1.5em;
     }
-
+    .glimpse{
+	position: fixed;
+	margin-left: 46%;
+    }
 
     div.header{
         opacity:0;

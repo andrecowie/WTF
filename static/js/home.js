@@ -17,10 +17,11 @@ $(document).ready(function() {
     };
 
     function myMan(){
-      $('.glimpse').animate({opacity:"+1"}, 4000);
-      $('.glimpse').animate({opacity:"-1"}, 2000);
-      var man = document.getElementsByClassName('img.glimpse');
-      man.parentNode.removeChild(man);
+      $('.glimpse').animate({opacity:"+1"}, 1000);
+      $('.glimpse').animate({opacity:"-1"}, 1000);
+      var par = document.getElementById('content');
+      var man = document.getElementById('glimpse');
+      setTimeout(function(){par.removeChild(man)},2000);
     };
 
     function inputPlease(){
