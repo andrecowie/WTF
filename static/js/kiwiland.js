@@ -4,4 +4,4 @@ $(document).ready(function(){
     setTimeout(function(){$('#myfirstpoints').animate({opacity:"+1"}, 3000)},10000);
     setTimeout(function(){$('#ranting').animate({opacity:"+1"}, 3000)},15000);
     setTimeout(function(){$('#now').animate({opacity:"+1"}, 3000)},20000);
-});
+);
