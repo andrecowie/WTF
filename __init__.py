@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    mypages = {'nand':'goodchat','new zealand': 'kiwiland', 'nz': 'kiwiland', 'ur cute': 'cute', 'utopia': 'plan',
+    mypages = {'new zealand': 'kiwiland', 'nz': 'kiwiland', 'cute': 'iwouldliketogettoknowyou', 'utopia': 'plan',
                'an employer': 'working', 'me': 'aka', 'friend': 'mate'}
     if request.method == 'GET':
         return render_template('index.html')
@@ -28,21 +28,24 @@ def nand():
 
 @app.route('/home', methods=['GET', 'POST'])
 def home():
-    return render_template('home.html')
+	if request.method == 'POST':
+		inp = open('./static/utl/stores/homeput.txt', 'w')
+		inp.write(request.form['input'])
+		inp.close()
+	return render_template('home.html')
 
 
-@app.route('/cute', methods=['GET', 'POST'])
+@app.route('/iwouldliketogettoknowyou', methods=['GET', 'POST'])
 def hello():
     if request.method == 'GET':
         return render_template('cute.html')
     elif request.method == 'POST':
-        name = request.form['theName']
-        number = request.form['theNumber']
-        message = request.form['theMessage']
-        f = open('cuties.txt', 'a')
-        f.write(name+number+message)
+	cutie = open('./static/utl/stores/cuties.txt', 'w')
+	cutie.write(request.form['theName'])
+	cutie.write(request.form['theNumber'])
+	cutie.write(request.form['theMessage'])
+	cutie.close()
         return redirect(url_for('index'))
-
 
 @app.route('/kiwiland', methods=['GET'])
 def progression():
