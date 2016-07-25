@@ -13,6 +13,9 @@ def index():
         return render_template('index.html')
     elif request.method == 'POST':
         response = request.form['youare']
+	indexput = open('./static/utl/stores/indexput.txt', 'w')
+	indexput.write(response)
+	indexput.close()
         if response.lower() in mypages or response[:6] == 'friend':
             if (response.lower()[:6] == 'friend') and (len(response) > 7):
                 return redirect('/' + mypages[response.lower()[:6]] + '/' + response.lower()[7:])
@@ -26,26 +29,31 @@ def index():
 def nand():
 	return "I enjoyed our chat and I hope we get the opportunity to discuss these big problems and big solutions! As students and lecturers our only goal should be to improve the amount both lecturers and students can learn. The bigger question is how..."
 
+
 @app.route('/home', methods=['GET', 'POST'])
 def home():
 	if request.method == 'POST':
+		user_input = request.form['input']
 		inp = open('./static/utl/stores/homeput.txt', 'w')
-		inp.write(request.form['input'])
+		inp.write(user_input)
 		inp.close()
 	return render_template('home.html')
 
 
 @app.route('/iwouldliketogettoknowyou', methods=['GET', 'POST'])
 def hello():
-    if request.method == 'GET':
-        return render_template('cute.html')
-    elif request.method == 'POST':
+    if request.method == 'POST':
+	name = request.form['theName']
+        number = request.form['thePhone']
+        message = request.form['theMessage']
 	cutie = open('./static/utl/stores/cuties.txt', 'w')
-	cutie.write(request.form['theName'])
-	cutie.write(request.form['theNumber'])
-	cutie.write(request.form['theMessage'])
+	cutie.write(name)
+	cutie.write(number)
+	cutie.write(message)
 	cutie.close()
-        return redirect(url_for('index'))
+	return redirect(url_for('home'))
+    return render_template('cute.html')
+
 
 @app.route('/kiwiland', methods=['GET'])
 def progression():
