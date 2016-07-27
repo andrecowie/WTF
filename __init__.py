@@ -13,7 +13,7 @@ def index():
         return render_template('index.html')
     elif request.method == 'POST':
         response = request.form['youare']
-        indexput = open('./static/utl/stores/indexput.txt', 'w')
+        indexput = open('static/utl/stores/indexput.txt', 'w')
         indexput.write(response)
         indexput.close()
         if response.lower() in mypages or response[:6] == 'friend':
