@@ -14,9 +14,6 @@ def index():
         return render_template('index.html')
     elif request.method == 'POST':
         response = request.form['youare']
-	inp = open("/var/www/whosthefuture/WTF/static/utl/stores/indexput.txt", w)
-	inp.write(response)
-	inp.close()
         if response.lower() in mypages or response[:6] == 'friend':
             if (response.lower()[:6] == 'friend') and (len(response) > 7):
                 return redirect('/' + mypages[response.lower()[:6]] + '/' + response.lower()[7:])
