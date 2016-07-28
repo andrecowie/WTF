@@ -1,6 +1,6 @@
 $(document).ready(function myMessage(){
         $('#story').typed({
-            strings: [],
+            strings: ["You want to work with me.", "Heres why."],
             backDelay: 500,
             typeSpeed: 30,
             backSpeed: 30,
@@ -9,4 +9,4 @@ $(document).ready(function myMessage(){
             loopCount: false,
             showCursor: false
         });
-    };
+    });
