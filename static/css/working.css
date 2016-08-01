@@ -1,5 +1,10 @@
+div{
+	text-align: center;
+}
 body{
 	max-width: 100%;
 	max-height: 100%;
 	background-color: black;
+	font-family: 'Ubuntu', 'Open Sans Condensed';
+	color: white;
 }
