@@ -1,10 +1,10 @@
 setTimeout(function(){
 		$(".element").typed({
-		    strings: ["You got some weird business card from me.", "Because I wanna take you out.", "We'll have fun."],
+		    strings: ["Cut to the chase.", "I wanna take you out.", "We could be cute."],
 		    backDelay: 500,
-            typeSpeed: 30,
-            backSpeed: 30,
-            startDelay: 1500,
+            typeSpeed: 35,
+            backSpeed: 0.2,
+            startDelay: 1000,
             loop: false,
             loopCount: false,
             showCursor: false
@@ -46,6 +46,7 @@ setTimeout(function getNumber(){
 	k.style.color = "white";
 	k.style.border = "0";
 	k.style.textAlign = "center";
+
 	var l = document.createElement("input");
 	l.setAttribute('type', "submit");
 	l.style.display = "none";
@@ -54,4 +55,4 @@ setTimeout(function getNumber(){
 	f.appendChild(k);
 	f.appendChild(l);
 	document.getElementsByTagName('body')[0].appendChild(f);
-}, 14000);
+}, 8600);
