@@ -5,7 +5,7 @@ $(document).ready(function() {
     $('div.header').animate({opacity:"+1"}, 4000);
     function myMessage(){
         $('#story').typed({
-            strings: ["Hello.", "This website relates to my interests, goals and dreams.<br>I believe things will change, for the better.<br>However first we need to implement a modern way of governing ourselves.<br>So that we have a way of managing greed and scarcity.<br>Allowing us to advance culturally in the direction of equality.<br>Removing misinformed ideals and misinformation in general will help us as individuals achieve more and work more efficiently together.<br>Establishing a way for society to be more connected and efficient is of paramount importance. <br> For both individual and collective bodies."],
+            strings: ["Hello.", "This website relates to my interests, goals and dreams.<br>I believe things will change, for the better.<br>However first we need to implement a modern way of governing ourselves.<br>So that we have a way of managing greed and scarcity.<br>Allowing us to advance culturally in the direction of equality.<br>Removing misinformed ideals and misinformation in general will help us as individuals achieve more and work more efficiently together.<br>Establishing a way for society to be more connected, efficient and sustainable is of paramount importance. <br> For us both as individuals and as a collective."],
             backDelay: 500,
             typeSpeed: 35,
             backSpeed: 0.2,
