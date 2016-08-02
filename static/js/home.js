@@ -18,7 +18,7 @@ $(document).ready(function() {
 
     function myMan(){
       $('.glimpse').animate({opacity:"+1"}, 1000);
-      $('.glimpse').animate({opacity:"-1"}, 1000);
+      $('.glimpse').animate({opacity:"-1"}, 2000);
       var par = document.getElementById('content');
       var man = document.getElementById('glimpse');
       setTimeout(function(){par.removeChild(man)},2000);
@@ -26,7 +26,7 @@ $(document).ready(function() {
 
     function system(){
       $('.glimpsee').animate({opacity:"+1"}, 1000);
-      $('.glimpsee').animate({opacity:"-1"}, 1000);
+      $('.glimpsee').animate({opacity:"-1"}, 2000);
       var par = document.getElementById('content');
       var sys = document.getElementById('glimpsee');
       setTimeout(function(){par.removeChild(sys)},2000);
@@ -34,7 +34,7 @@ $(document).ready(function() {
 
     function greed(){
       $('.glimpseee').animate({opacity:"+1"}, 1000);
-      $('.glimpseee').animate({opacity:"-1"}, 1000);
+      $('.glimpseee').animate({opacity:"-1"}, 2000);
       var par = document.getElementById('content');
       var gre = document.getElementById('glimpseee');
       setTimeout(function(){par.removeChild(gre)},2000);
