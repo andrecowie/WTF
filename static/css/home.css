@@ -8,6 +8,40 @@ input:focus{
 	border: 1px solid white;
 	box-shadow: 0 0 3px;
 }
+#future{
+	padding: 0.2em;
+	background-color: white;
+	text-align: center;
+	font-family: 'Ubuntu', 'Open Sans Condensed';
+}
+
+#past{
+	padding: 0.2em;
+	background-color: white;
+	text-align: center;
+	font-family: 'Ubuntu', 'Open Sans Condensed';
+}
+
+#present{
+	padding: 0.2em;
+	background-color: white;
+	text-align: center;
+	font-family: 'Ubuntu', 'Open Sans Condensed';
+}
+
+#sustainablity{
+	padding: 0.2em;
+	background-color: white;
+	text-align: center;
+	font-family: 'Ubuntu', 'Open Sans Condensed';
+}
+
+#community{
+	padding: 0.2em;
+	background-color: white;
+	text-align: center;
+	font-family: 'Ubuntu', 'Open Sans Condensed';
+}
 
 .glimpse{
     max-width: 20%;

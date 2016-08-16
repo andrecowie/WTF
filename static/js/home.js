@@ -42,6 +42,11 @@ $(document).ready(function() {
 
     function startMessage(){
         $('.content').animate({opacity:"+1"}, 2000);
+		$('div#past').animate({opacity:"+1"}, 4000);
+		$('div#present').animate({opacity:"+1"}, 4000);
+		$('div#future').animate({opacity:"+1"}, 4000);
+		$('div#community').animate({opacity:"+1"}, 4000);
+		$('div#sustainablity').animate({opacity:"+1"}, 4000);
         setTimeout(myMessage, 3000);
         setTimeout(myMan, 25000);
         setTimeout(system, 23000);
