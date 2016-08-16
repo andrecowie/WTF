@@ -40,33 +40,12 @@ $(document).ready(function() {
       setTimeout(function(){par.removeChild(gre)},2000);
     };
 
-    function inputPlease(){
-	var x = document.createElement("form");
-        x.setAttribute('method',"post");
-        x.setAttribute('action',"/");
-        x.setAttribute('id', "formsend");
-
-        var y = document.createElement("input");
-        y.setAttribute('type', "text");
-        y.setAttribute('placeholder', "any input");
-        y.setAttribute('name', "input");
-        y.style.fontFamily = "Ubuntu";
-        y.style.background = "black";
-        y.style.color = "white";
-        y.style.border = "0";
-	    y.style.textAlign = "center";
-        x.appendChild(y);
-        document.getElementsByTagName('body')[0].appendChild(x);
-    };
-
     function startMessage(){
         $('.content').animate({opacity:"+1"}, 2000);
         setTimeout(myMessage, 3000);
         setTimeout(myMan, 25000);
         setTimeout(system, 23000);
-        setTimeout(greed, 24000)
-	    setTimeout(inputPlease, 55000);
-
+        setTimeout(greed, 24000);	    
     };
 
     setTimeout(startMessage, 3000);
