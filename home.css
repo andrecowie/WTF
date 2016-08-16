@@ -1,0 +1,297 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+
+input:focus{
+	outline: none;
+	border: 1px solid white;
+	box-shadow: 0 0 3px;
+}
+#future{
+	padding: 0.2em;
+	background-color: white;
+	text-align: center;
+	font-family: 'Ubuntu', 'Open Sans Condensed';
+}
+
+#past{
+	padding: 0.2em;
+	background-color: white;
+	text-align: center;
+	font-family: 'Ubuntu', 'Open Sans Condensed';
+}
+
+#present{
+	padding: 0.2em;
+	background-color: white;
+	text-align: center;
+	font-family: 'Ubuntu', 'Open Sans Condensed';
+}
+
+#sustainablity{
+	padding: 0.2em;
+	background-color: white;
+	text-align: center;
+	font-family: 'Ubuntu', 'Open Sans Condensed';
+}
+
+#community{
+	padding: 0.2em;
+	background-color: white;
+	text-align: center;
+	font-family: 'Ubuntu', 'Open Sans Condensed';
+}
+
+.glimpse{
+    max-width: 20%;
+    height: auto;
+    opacity:0;
+    margin-left: auto;
+    margin-right: auto;
+}
+.glimpsee{
+    max-width: 20%;
+    height: auto;
+    opacity:0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.glimpseee{
+    max-width: 20%;
+    height: auto;
+    opacity:0;
+}
+
+@media (min-width: 1280px) {
+    body {
+        background-color: #000000;
+        text-align: center;
+        font-size: 1.5em;
+    }
+    .glimpse{
+	    position: fixed;
+	    margin-left: 30%;
+    }
+    .glimpsee{
+	    position: fixed;
+	    left: 80%;
+	    top: 0px;
+    }
+
+    .glimpseee{
+        position: fixed;
+        top:70%;
+        left:5%;
+    }
+
+    div.header{
+        opacity:0;
+    }
+
+    .header h1.wtf {
+        position: relative;
+        opacity: 1;
+        color: #ffffff;
+        font-family: 'Ubuntu', 'Open Sans Condensed';
+        line-height: 80%;
+        font-size: 3em;
+    }
+
+    ul.apps {
+        opacity: 1;
+        display: inline;
+        font-family: 'Open Sans Condensed', 'Ubuntu';
+        font-size: 0.75em;
+    }
+
+    li {
+        display: inline;
+    }
+
+    .header a{
+        text-decoration: none;
+        color: #DADADA;
+        display: inline;
+    }
+
+    .content{
+        position: relative;
+        text-align: left;
+        opacity: 0;
+        display: inline-block;
+        width: 80%;
+        height: 100%;
+    }
+    .me{
+        display: inline;
+        font-family: 'Ubuntu', 'Open Sans Condensed';
+        font-size: 0.7em;
+        color: #ffffff;
+        margin: 0 0 0 0;
+    }
+    span{
+        white-space: pre-line;
+        display: inline;
+        font-family: 'Open Sans Condensed', 'Ubuntu';
+        font-size: 0.7em;
+        color: #ffffff;
+        margin: 0 0 0 0;
+    }
+}
+
+@media (max-width: 600px){
+    body {
+        background-color: #000000;
+        text-align: center;
+        font-size: 1.5em;
+    }
+
+    div.header{
+        opacity:0;
+    }
+    .glimpse{
+        position: fixed;
+        max-width: 30%;
+        margin-left: 26%;
+	    margin-top: 5%;
+    }
+
+    .glimpsee{
+	    position: fixed;
+	    left: 80%;
+	    top: 0px;
+    }
+    
+    .glimpseee{
+        position: fixed;
+        top:70%;
+        left:5%;
+    }
+
+    .header h1.wtf {
+        position: relative;
+        opacity: 1;
+        color: #ffffff;
+        font-family: 'Ubuntu', 'Open Sans Condensed';
+        line-height: 80%;
+        font-size: 3em;
+    }
+
+    ul.apps {
+        opacity: 1;
+        display: inline;
+        font-family: 'Open Sans Condensed', 'Ubuntu';
+        font-size: 0.75em;
+    }
+
+    li {
+        display: inline;
+    }
+
+    .header a{
+        text-decoration: none;
+        color: #DADADA;
+        display: inline;
+    }
+
+    .content{
+        position: relative;
+        text-align: left;
+        opacity: 0;
+        display: inline-block;
+        width: 80%;
+        height: 100%;
+    }
+    .me{
+        display: inline;
+        font-family: 'Ubuntu', 'Open Sans Condensed';
+        font-size: 0.7em;
+        color: #ffffff;
+        margin: 0 0 0 0
+    }
+    span{
+        white-space: pre-line;
+        display: inline;
+        font-family: 'Open Sans Condensed', 'Ubuntu';
+        font-size: 0.7em;
+        color: #ffffff;
+        margin: 0 0 0 0;
+    }
+}
+
+@media (max-width: 1280px){
+	
+    body {
+        background-color: #000000;
+        text-align: center;
+        font-size: 1.5em;
+    }
+    .glimpse{
+        position: fixed;
+        margin-left: 46%;
+    }
+    .glimpsee{
+	    position: fixed;
+	    left: 80%;
+	    top: 0px;
+    }
+    div.header{
+        opacity:0;
+    }
+
+    .header h1.wtf {
+        position: relative;
+        opacity: 1;
+        color: #ffffff;
+        font-family: 'Ubuntu', 'Open Sans Condensed';
+        line-height: 80%;
+        font-size: 3em;
+    }
+
+    ul.apps {
+        opacity: 1;
+        display: inline;
+        font-family: 'Open Sans Condensed', 'Ubuntu';
+        font-size: 0.75em;
+    }
+
+    li {
+        display: inline;
+    }
+
+    .header a{
+        text-decoration: none;
+        color: #DADADA;
+        display: inline;
+    }
+
+    .content{
+        position: relative;
+        text-align: left;
+        opacity: 0;
+        display: inline-block;
+        width: 80%;
+        height: 100%;
+    }
+    .me{
+        display: inline;
+        font-family: 'Open Sans Condensed', 'Ubuntu';
+        font-size: 0.7em;
+        color: #ffffff;
+        margin: 0 0 0 0;
+    }
+    span{
+        white-space: pre-line;
+        display: inline;
+        font-family: 'Open Sans Condensed', 'Ubuntu';
+        font-size: 0.7em;
+        color: #ffffff;
+        margin: 0 0 0 0;
+    }
+}
+
+
+
+
