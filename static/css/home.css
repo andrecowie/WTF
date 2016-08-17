@@ -9,39 +9,59 @@ input:focus{
 	box-shadow: 0 0 3px;
 }
 #future{
-	padding: 0.2em;
+    display: inline-block;
 	background-color: white;
 	text-align: center;
-	font-family: 'Ubuntu', 'Open Sans Condensed';
+    font-family: 'Ubuntu', 'Open Sans Condensed';
+}
+
+div#future{
+    max-width: 20%;
 }
 
 #past{
-	padding: 0.2em;
+    display: inline-block;
 	background-color: white;
 	text-align: center;
 	font-family: 'Ubuntu', 'Open Sans Condensed';
+}
+
+div#past{
+    max-width: 20%;
 }
 
 #present{
-	padding: 0.2em;
+    display: inline-block;
 	background-color: white;
 	text-align: center;
 	font-family: 'Ubuntu', 'Open Sans Condensed';
+}
+
+div#present{
+    max-width: 20%;
 }
 
 #sustainablity{
-	padding: 0.2em;
+    display: inline-block;
 	background-color: white;
 	text-align: center;
 	font-family: 'Ubuntu', 'Open Sans Condensed';
 }
 
+div#sustainablity{
+    max-width: 20%;
+}
+
 #community{
-	padding: 0.2em;
+    display: inline-block;
 	background-color: white;
 	text-align: center;
 	font-family: 'Ubuntu', 'Open Sans Condensed';
 }
+
+div#community{
+        max-width: 20%;
+    }
 
 .glimpse{
     max-width: 20%;
