@@ -9,7 +9,7 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def index():
     mypages = {'new zealand': 'kiwiland', 'nz': 'kiwiland', 'cute': 'iwouldliketogettoknowyou', 'utopia': 'plan',
-               'an employer': 'working', 'me': 'aka', 'friend': 'mate'}
+               'professional': 'working', 'me': 'aka', 'friend': 'mate'}
     if request.method == 'GET':
         return render_template('index.html')
     elif request.method == 'POST':
