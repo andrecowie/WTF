@@ -60,8 +60,8 @@ div#sustainablity{
 }
 
 div#community{
-        max-width: 20%;
-    }
+    max-width: 20%;
+}
 
 .glimpse{
     max-width: 20%;
@@ -85,6 +85,27 @@ div#community{
 }
 
 @media (min-width: 1280px) {
+    div#present{
+        max-width: 20%;
+        left: auto;
+        right: auto;
+    }
+    div#community{
+        left: auto;
+        right: auto;
+    }
+    div#past{
+        left: auto;
+        right: auto;
+    }
+    div#present{
+        left: auto;
+        right: auto;
+    }
+    div#future{
+        left: auto;
+        right: auto;
+    }
     body {
         background-color: #000000;
         text-align: center;
