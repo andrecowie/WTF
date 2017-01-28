@@ -17,7 +17,7 @@ function myFunc(){
 
 		var k = document.createElement('input');
 		k.setAttribute('type', "text");
-		k.setAttribute('placeholder', "U R");
+		k.setAttribute('placeholder', "UR");
 		k.setAttribute('name', "youare");
 		k.setAttribute('class', 'form-control');
 		k.style.background = 'black';
