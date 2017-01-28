@@ -10,7 +10,7 @@ function myFunc(){
 		var i = document.createElement('form');
 		i.setAttribute('id', "lower");
 		i.setAttribute('action', "/");
-		i.setAttribute('method', "post");	
+		i.setAttribute('method', "post");
 		i.style.margin = '0 auto';
 		i.style.width = '50%';
 		i.style.textAlign = 'center';
@@ -19,12 +19,13 @@ function myFunc(){
 		k.setAttribute('type', "text");
 		k.setAttribute('placeholder', "U R");
 		k.setAttribute('name', "youare");
+		k.setAttribute('class', 'form-control');
 		k.style.background = 'black';
 		k.style.color = 'white';
 		k.style.border = '0';
 		k.style.textAlign = 'center';
 		i.appendChild(k);
-		
+
 		document.getElementsByTagName('body')[0].appendChild(i);
 	},750);
 };
