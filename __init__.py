@@ -14,7 +14,7 @@ def index():
         return render_template('index.html')
     elif request.method == 'POST':
         response = request.form['youare']
-        inp = open("/var/www/whosthefuture/WTF/static/utl/stores/indexput.txt", "a")
+        inp = open("/var/www/wtf/WTF/static/utl/stores/indexput.txt", "a")
         inp.write(response + "\n")
         inp.close()
         if response.lower() in mypages or response[:6] == 'friend':
@@ -36,7 +36,7 @@ def nand():
 def home():
     if request.method == 'POST':
         user_input = request.form['input']
-        inp = open('/var/www/whosthefuture/WTF/static/utl/stores/homeput.txt', 'a')
+        inp = open('/var/www/wtf/WTF/static/utl/stores/homeput.txt', 'a')
         inp.write(user_input+"\n")
         inp.close()
     return render_template('home.html')
@@ -48,7 +48,7 @@ def hello():
         name = request.form['theName']
         number = request.form['thePhone']
         message = request.form['theMessage']
-        cutie = open('/var/www/whosthefuture/WTF/static/utl/stores/cuties.txt', 'a')
+        cutie = open('/var/www/wtf/WTF/static/utl/stores/cuties.txt', 'a')
         cutie.write(name+" ")
         cutie.write(number+" ")
         cutie.write(message+" "+"\n")
