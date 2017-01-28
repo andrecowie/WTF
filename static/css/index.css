@@ -1,3 +1,7 @@
+@@font-face {
+	font-family: "Ubuntu";
+	src: url("../../Ubuntu-C.ttf");
+}
 input:focus{
 	outline: none;
 	border: 1px solid white;
