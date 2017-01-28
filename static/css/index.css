@@ -1,6 +1,6 @@
 @@font-face {
 	font-family: "Ubuntu";
-	src: url("../../Ubuntu-C.ttf");
+	src: url("/var/www/wtf/WTF/Ubuntu-C.ttf");
 }
 input:focus{
 	outline: none;
