@@ -9,6 +9,7 @@ function myFunc(){
 	setTimeout(function(){
 		var l = document.createElement('div');
 		l.setAttribute('class', "col-xs-4 col-xs-offset-4");
+		l.setAttribute('style', "margin-top:  20%");
 
 		var i = document.createElement('form');
 		i.setAttribute('id', "lower");
