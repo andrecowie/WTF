@@ -45,12 +45,8 @@ def home():
 @app.route('/iwouldliketogettoknowyou', methods=['GET', 'POST'])
 def hello():
     if request.method == 'POST':
-        name = request.form['theName']
-        number = request.form['thePhone']
         message = request.form['theMessage']
         cutie = open('/var/www/wtf/WTF/static/utl/stores/cuties.txt', 'a')
-        cutie.write(name+" ")
-        cutie.write(number+" ")
         cutie.write(message+" "+"\n")
         cutie.close()
         return redirect(url_for('home'))

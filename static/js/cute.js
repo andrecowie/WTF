@@ -1,6 +1,6 @@
 setTimeout(function(){
 		$(".element").typed({
-		    strings: ["Cut to the chase.", "I wanna take you out.", "We could be cute."],
+		    strings: ["Kia Ora, I'm Andre.\n Send me some love!", "I might send some back."],
 		    backDelay: 500,
             typeSpeed: 35,
             backSpeed: 0.2,
@@ -18,41 +18,32 @@ setTimeout(function getNumber(){
 	f.setAttribute('method',"post");
 	f.style.background = "black";
 	f.style.textAlign = "center";
-	f.setAttribute('id', "formsend");	
+	f.setAttribute('id', "formsend");
 
-	var i = document.createElement("input");
-	i.setAttribute('type',"text");
-	i.setAttribute('placeholder', "name");
-	i.setAttribute('name',"theName");
-	i.style.background = "black";
-	i.style.textAlign = "center";
-	i.style.color = "white";
-	i.style.border = "0";
-
-	var j = document.createElement("input");
-	j.setAttribute('type',"text");
-	j.setAttribute('placeholder', "number");
-	j.setAttribute('name', "thePhone");
-	j.style.background = "black";
-	j.style.textAlign = "center";
-	j.style.color = "white";
-	j.style.border = "0";
-
-	var k = document.createElement("input");
+	var k = document.createElement("textarea");
 	k.setAttribute('type',"text");
-	k.setAttribute('placeholder', "message");
+	k.setAttribute('placeholder', "LOVE");
+	k.required = true;
 	k.setAttribute('name', "theMessage");
 	k.style.background = "black";
 	k.style.color = "white";
 	k.style.border = "0";
 	k.style.textAlign = "center";
+	k.style.marginTop = "2%";
 
-	var l = document.createElement("input");
+	var l = document.createElement("button");
 	l.setAttribute('type', "submit");
-	l.style.display = "none";
-	f.appendChild(i);
-	f.appendChild(j);
+	l.setAttribute('value', "submit");
+	l.setAttribute('class', "button button-3d button-caution button-pill");
+	l.innerHTML = "SEND";
+	l.style.marginTop = "1%";
+
+	// var l = document.createElement("input");
+	// l.setAttribute('type', "submit");
+	// l.setAttribute('class', "button button-3d button-primary button-caution button-pill");
+	// l.innerHTML = "SEND";
 	f.appendChild(k);
+	f.appendChild(document.createElement("br"));
 	f.appendChild(l);
 	document.getElementsByTagName('body')[0].appendChild(f);
 }, 8600);
