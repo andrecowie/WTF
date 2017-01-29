@@ -46,7 +46,7 @@ def home():
 def hello():
     if request.method == 'POST':
         message = request.form['theMessage']
-        cutie = open('/var/www/wtf/WTF/static/utl/stores/cuties.txt', 'a')
+        cutie = open('/var/www/wtf/WTF/static/utl/stores/cuteput.txt', 'a')
         cutie.write(message+" "+"\n")
         cutie.close()
         return redirect(url_for('home'))
