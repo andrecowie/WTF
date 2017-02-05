@@ -8,7 +8,7 @@ setTimeout(function(){
             loop: false,
             loopCount: false,
             showCursor: false
-        });
+        });fa
 	}
 , 500);
 
