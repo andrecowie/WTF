@@ -49,7 +49,7 @@ def hello():
         cutie = open('/var/www/wtf/WTF/static/utl/stores/cuteput.txt', 'a')
         cutie.write(message+" "+"\n")
         cutie.close()
-        return "Ty Cutie."
+        return "Thanks cutie."
     return render_template('cute.html')
 
 
