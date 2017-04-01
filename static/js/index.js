@@ -1,36 +1,81 @@
-/**
- * Created by abcdre on 24/05/2016.
- */
-function myFunc(){
-	$('div.shadow').animate({marginTop: "-150%"}, 1000);
-	setTimeout(function(){
-		element = document.getElementById("shadow");
-		element.parentNode.removeChild(element)}, 1000);
-	setTimeout(function(){
-		var l = document.createElement('div');
-		l.setAttribute('class', "col-xs-4 col-xs-offset-4");
-		l.setAttribute('style', "margin-top:  20%");
-
-		var i = document.createElement('form');
-		i.setAttribute('id', "lower");
-		i.setAttribute('action', "/");
-		i.setAttribute('method', "post");
-		i.style.margin = '0 auto';
-		i.style.width = '50%';
-		i.style.textAlign = 'center';
-
-		var k = document.createElement('input');
-		k.setAttribute('type', "text");
-		k.setAttribute('placeholder', "UR");
-		k.setAttribute('name', "youare");
-		k.setAttribute('class', 'form-control');
-		k.style.background = 'black';
-		k.style.color = 'white';
-		k.style.border = '0';
-		k.style.textAlign = 'center';
-		i.appendChild(k);
-		l.appendChild(i);
-
-		document.getElementsByTagName('body')[0].appendChild(l);
-	},750);
+var movingOn = function(rootDiv, oldDiv){ 
+	var divJq = jQuery( oldDiv );
+	console.log( divJq.height());
+	divJq.animate({
+		"marginTop": "-="+(divJq.height()*2)+"px"
+	}, "slow");
+	setTimeout(function(){ 
+		rootDiv.removeChild(oldDiv);
+	}, 1000);
 };
+$(document).ready(function(){
+	console.log("Ready");
+	var hello = document.createElement("h3");
+	hello.setAttribute("id", "hello");
+	hello.setAttribute("style", "text-align: center;");
+	var div = document.createElement("div");
+	div.setAttribute("class", "col-xs- col-lg-offset-3 col-lg-6");
+	div.appendChild(hello);
+	var startdiv = $("div").get( 0 );
+	startdiv.appendChild(div);
+	setTimeout(function(){ 
+		$( '#hello' ).typed({
+			strings: ["Hello"],
+			backDelay: 500,
+			typeSpeed: 35,
+			backSpeed: 0.2,
+			loop: false,
+			showCursor: false 
+		});
+		var whoami = document.createElement("h5");
+		whoami.setAttribute("id", "whoami");
+		whoami.setAttribute("style", "text-align: center;");
+		div.appendChild(whoami);
+		setTimeout(function(){ 
+			$('#whoami').typed({
+				strings: ["I am a young aucklander interested in where this ship is sailing.", "I think I can see how things need to change."],
+				backDelay: 300,
+				typeSpeed: 15,
+				backSpeed: 0,
+				loop: false,
+				showCursor: false
+			});
+			var whatiknow = document.createElement("h6");
+			whatiknow.setAttribute("id", "whatiknow");
+			whatiknow.setAttribute("style", "text-align:center;" );
+			div.appendChild(whatiknow);
+			setTimeout(function(){
+				$('#whatiknow').typed({
+					strings: ["There are three main things i would like to address on this website."],
+					backDelay: 1,
+					loop: false,
+					typeSpeed: 20,
+					backSpeed: 1,
+					showCursor: false
+				});
+				var sustainability = document.createElement("h6");
+				sustainability.setAttribute("id", "sustainability");
+				sustainability.setAttribute("style", "text-align:center;" );
+				div.appendChild(sustainability);
+				setTimeout(function(){
+					$( '#sustainability' ).typed({
+						strings: ["<a href=\"\">Sustainability</a>", "<a href=\"\">Fairness</a>", "<a href=\"\">Standing</a>", "Hah too slow\!"],
+						backDelay: 1,
+						loop: false,
+						typeSpeed: 20,
+						backSpeed: 1,
+						showCursor: false
+					});
+					setTimeout( function(){
+						movingOn(startdiv, div)
+					}, 5000);
+
+				},5000);
+			}
+			,12000);
+		}
+		, 1000);
+
+	}
+	, 1000);
+});

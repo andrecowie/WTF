@@ -1,6 +1,0 @@
-{
-    "dev": {
-        "app_function": "__init__.app", 
-        "s3_bucket": "zappa-g1btgwrdl"
-    }
-}

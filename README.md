@@ -1,4 +1,5 @@
 # WTF
 whos the future?
 me.
-v0.01 Online by 24th July 2016
+Time to make this sight align with some solutions
+
