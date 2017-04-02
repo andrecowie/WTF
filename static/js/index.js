@@ -1,3 +1,99 @@
+function initMap() {
+  var uluru = {lat:8.7832, lng: 200.5085};
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 2,
+    center: uluru,
+		disableDefaultUI: true,
+		styles: [
+            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+            {
+              featureType: 'administrative.locality',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'geometry',
+              stylers: [{color: '#263c3f'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#6b9a76'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry',
+              stylers: [{color: '#38414e'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#212a37'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#9ca5b3'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry',
+              stylers: [{color: '#746855'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#1f2835'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#f3d19c'}]
+            },
+            {
+              featureType: 'transit',
+              elementType: 'geometry',
+              stylers: [{color: '#2f3948'}]
+            },
+            {
+              featureType: 'transit.station',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'geometry',
+              stylers: [{color: '#4E89B0'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#515c6d'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.stroke',
+              stylers: [{color: '#17263c'}]
+            },{ 
+    					featureType: "all",
+    					elementType: "labels",
+    					stylers: [
+      				{ visibility: "off" }
+    				]
+  }
+          ]
+
+  });
+}
+
 var soPrettyMuch = function(div){
 	var soprettymuch = document.createElement("h2");
 	soprettymuch.setAttribute("id","soprettymuch");
@@ -11,8 +107,13 @@ var soPrettyMuch = function(div){
 		loop: false,
 		showCursor: false 
 	});
+	setTimeout(function(){
+
+		$("#map").css('opacity', "1");
+	}, 1000);
 	
 }
+
 
 var movingOn = function(rootDiv, oldDiv){ 
 	var divJq = jQuery( oldDiv );
@@ -36,7 +137,7 @@ var movingOn = function(rootDiv, oldDiv){
 
 };
 $(document).ready(function(){
-	console.log("Ready");
+	console.log($(window).height());
 	var hello = document.createElement("h3");
 	hello.setAttribute("id", "hello");
 	hello.setAttribute("style", "text-align: center;");
@@ -44,7 +145,8 @@ $(document).ready(function(){
 	div.setAttribute("class", "col-xs- col-lg-offset-3 col-lg-6");
 	div.appendChild(hello);
 	var startdiv = $("div").get( 0 );
-	startdiv.appendChild(div);
+	var mapdiv = document.getElementById('map');
+	startdiv.insertBefore(div, mapdiv);
 	setTimeout(function(){ 
 		$( '#hello' ).typed({
 			strings: ["Hello"],
