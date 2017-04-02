@@ -6,16 +6,20 @@
 body
 {
 	background-color: rgb(10, 10, 10);
+	font-family: 'VT323', monospace;
 }
 h3
 {
-		
+	font-family: 'Tangerine','VT323', monospace;	
 	color: rgb(232, 232, 232);
+	font-size: 48px;
 }
 h5
 {
+	font-family: 'VT323', monospace;	
 	color: rgb(211, 211, 211);
 }
 h6{ 
+	font-family: 'VT323', monospace;	
 	color: rgb(200, 200, 200);
 }

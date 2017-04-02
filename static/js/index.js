@@ -1,12 +1,39 @@
+var soPrettyMuch = function(div){
+	var soprettymuch = document.createElement("h2");
+	soprettymuch.setAttribute("id","soprettymuch");
+	soprettymuch.setAttribute("style", "text-align: center;");
+	div.appendChild(soprettymuch);
+	$('#soprettymuch').typed({
+		strings: ["SO PRETTY MUCH."],
+		backDelay: 500,
+		typeSpeed: 35,
+		backSpeed: 0.2,
+		loop: false,
+		showCursor: false 
+	});
+	
+}
+
 var movingOn = function(rootDiv, oldDiv){ 
 	var divJq = jQuery( oldDiv );
 	console.log( divJq.height());
+	var divJqHeightTimesTwo = (divJq.height()*2);
 	divJq.animate({
-		"marginTop": "-="+(divJq.height()*2)+"px"
-	}, "slow");
+		"marginTop": "-="+divJqHeightTimesTwo+"px"
+	},3000);
 	setTimeout(function(){ 
-		rootDiv.removeChild(oldDiv);
-	}, 1000);
+		while(oldDiv.hasChildNodes())
+		{
+			oldDiv.removeChild(oldDiv.lastChild);
+		}
+		divJq.animate({
+			"marginTop": "+="+divJqHeightTimesTwo+"px"
+		}, 1000);
+		soPrettyMuch(oldDiv);
+//		rootDiv.removeChild(oldDiv);
+	}, 3000);
+
+
 };
 $(document).ready(function(){
 	console.log("Ready");
