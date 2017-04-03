@@ -1,8 +1,8 @@
 function initMap() {
-  var uluru = {lat:8.7832, lng: 200.5085};
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 2,
-    center: uluru,
+	var uluru = {lat:8.7832, lng: 200.5085};
+	var map = new google.maps.Map(document.getElementById('map'), {
+		zoom: 2,
+		center: uluru,
 		disableDefaultUI: true,
 		styles: [
             {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
@@ -82,16 +82,15 @@ function initMap() {
               featureType: 'water',
               elementType: 'labels.text.stroke',
               stylers: [{color: '#17263c'}]
-            },{ 
-    					featureType: "all",
-    					elementType: "labels",
-    					stylers: [
-      				{ visibility: "off" }
-    				]
-  }
-          ]
-
-  });
+            },
+	    {
+	      featureType: "all",
+              elementType: "labels",
+              stylers: [{ visibility: "off" }]
+  	    }
+          ],
+	});
+	return map;
 }
 
 var soPrettyMuch = function(div){
@@ -108,8 +107,16 @@ var soPrettyMuch = function(div){
 		showCursor: false 
 	});
 	setTimeout(function(){
-
-		$("#map").css('opacity', "1");
+		$("#map").css('height', "777px");
+		var map = initMap();
+		$("#map").css('opacity', "1");	
+		var newZ = {lat: 174.3121, lng: 41.3121};
+		var marker = new google.maps.Marker({
+			position: newZ,
+			map: map,
+			title: 'IDK'
+		});
+		map.setCenter({lat: 174.31, lng: 41.31});
 	}, 1000);
 	
 }
