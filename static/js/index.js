@@ -1,6 +1,7 @@
+var map;
 function initMap() {
 	var uluru = {lat:8.7832, lng: 200.5085};
-	var map = new google.maps.Map(document.getElementById('map'), {
+	map = new google.maps.Map(document.getElementById('map'), {
 		zoom: 2,
 		center: uluru,
 		disableDefaultUI: true,
@@ -90,7 +91,12 @@ function initMap() {
   	    }
           ],
 	});
-	return map;
+}
+var mapZoomAndChat = function(){
+	setTimeout(function(){
+		map.setZoom(4);
+		map.setCenter({lat: -41.3410, lng: -174.3121})
+	}, 2000);
 }
 
 var soPrettyMuch = function(div){
@@ -107,16 +113,12 @@ var soPrettyMuch = function(div){
 		showCursor: false 
 	});
 	setTimeout(function(){
-		$("#map").css('height', "777px");
-		var map = initMap();
+		console.log($(window).height());
+		console.log(parseInt($( 'h2' ).css("height"), 10));
+		$("#map").css('height', $(window).height()-parseInt($("#soprettymuch").css("height"),10)+"px");
+		initMap();
 		$("#map").css('opacity', "1");	
-		var newZ = {lat: 174.3121, lng: 41.3121};
-		var marker = new google.maps.Marker({
-			position: newZ,
-			map: map,
-			title: 'IDK'
-		});
-		map.setCenter({lat: 174.31, lng: 41.31});
+		mapZoomAndChat();
 	}, 1000);
 	
 }
@@ -124,7 +126,6 @@ var soPrettyMuch = function(div){
 
 var movingOn = function(rootDiv, oldDiv){ 
 	var divJq = jQuery( oldDiv );
-	console.log( divJq.height());
 	var divJqHeightTimesTwo = (divJq.height()*2);
 	divJq.animate({
 		"marginTop": "-="+divJqHeightTimesTwo+"px"
@@ -144,7 +145,6 @@ var movingOn = function(rootDiv, oldDiv){
 
 };
 $(document).ready(function(){
-	console.log($(window).height());
 	var hello = document.createElement("h3");
 	hello.setAttribute("id", "hello");
 	hello.setAttribute("style", "text-align: center;");
