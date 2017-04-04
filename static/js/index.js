@@ -113,9 +113,10 @@ var soPrettyMuch = function(div){
 		showCursor: false 
 	});
 	setTimeout(function(){
-		console.log($(window).height());
-		console.log(parseInt($( 'h2' ).css("height"), 10));
-		$("#map").css('height', $(window).height()-parseInt($("#soprettymuch").css("height"),10)+"px");
+		console.log("Window: "+$(window).height());
+		console.log("h2 height: "+parseInt($( 'h2' ).css("height"), 10));
+		console.log("h2 margintop: "+parseInt($('h2').css("margin-top"), 10));
+		$("#map").css('height', $(window).height()-(parseInt($("#soprettymuch").css("height"),10)+parseInt($('#soprettymuch').css('margin-top'),10)+parseInt($('#soprettymuch').css("margin-bottom"), 10))+"px");
 		initMap();
 		$("#map").css('opacity', "1");	
 		mapZoomAndChat();
