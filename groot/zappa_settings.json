@@ -1,0 +1,9 @@
+{
+    "dev": {
+        "app_function": "__init__.app",
+        "certificate_arn": "arn:aws:acm:us-east-1:152815608007:certificate/81b13155-db0b-4127-b5ed-7d1097e29869",
+        "domain": "whosthefuture.me",
+        "aws_region": "ap-southeast-2", 
+        "s3_bucket": "zappa-bly6nce43"
+    }
+}

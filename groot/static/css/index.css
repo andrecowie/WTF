@@ -1,0 +1,34 @@
+@font-face 
+{
+	font-family: "Ubuntu";
+	src: url("/var/www/wtf/WTF/Ubuntu-C.ttf");
+}
+body
+{
+	background-color: rgb(10, 10, 10);
+	font-family: 'VT323', monospace;
+}
+h3
+{
+	font-family: 'Tangerine','VT323', monospace;	
+	color: rgb(232, 232, 232);
+	font-size: 48px;
+}
+h5
+{
+	font-family: 'VT323', monospace;	
+	color: rgb(211, 211, 211);
+}
+h6{ 
+	font-family: 'VT323', monospace;	
+	color: rgb(200, 200, 200);
+}
+
+a[href^="http://maps.google.com/maps"]{display:none !important}
+a[href^="https://maps.google.com/maps"]{display:none !important}
+.gmnoprint a, .gmnoprint span, .gm-style-cc {
+    display:none;
+}
+.gmnoprint div {
+    background:none !important;
+}
