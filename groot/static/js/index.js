@@ -1,8 +1,8 @@
 var formula = function(div){
-	var democracy = document.createElement('h4');
-	var communism = document.createElement('h4');
-	var plus = document.createElement('
-	
+	var form = document.createElement('form');
+	var input = document.createElement('input');
+	var youAre = document.createElement('h4');
+
 }
 $(document).ready(function(){
 	console.log("Ready!");
