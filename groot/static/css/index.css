@@ -1,8 +1,3 @@
-@font-face 
-{
-	font-family: "Ubuntu";
-	src: url("/var/www/wtf/WTF/Ubuntu-C.ttf");
-}
 body
 {
 	background-color: rgb(10, 10, 10);
