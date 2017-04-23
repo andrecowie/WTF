@@ -1,4 +1,4 @@
-#!/home/dre/github/WTF/venv/bin/python2
+#!/home/dre/github/WTF/www/venv/bin/python2
 
 # $Id: rst2xetex.py 7847 2015-03-17 17:30:47Z milde $
 # Author: Guenter Milde

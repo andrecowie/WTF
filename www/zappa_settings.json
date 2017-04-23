@@ -4,6 +4,7 @@
 	"certificate_arn": "arn:aws:acm:us-east-1:152815608007:certificate/defdd4d0-390b-4d83-b73a-9865d25adfb6",
 	"domain": "www.whosthefuture.me",
         "app_function": "__init__.app", 
-        "s3_bucket": "zappa-fde3o1f8d"
+        "s3_bucket": "zappa-fde3o1f8d",
+	"project_name": "wtf"
     }
 }

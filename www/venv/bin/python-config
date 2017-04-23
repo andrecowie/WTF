@@ -1,4 +1,4 @@
-#!/home/dre/github/WTF/venv/bin/python
+#!/home/dre/github/WTF/www/venv/bin/python
 
 import sys
 import getopt

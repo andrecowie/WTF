@@ -94,8 +94,8 @@ function initMap() {
 }
 var mapZoomAndChat = function(){
 	setTimeout(function(){
-		map.setZoom(4);
-		map.setCenter({lat: -41.3410, lng: -174.3121})
+		map.setZoom(5);
+		map.setCenter({lat: -40.3410, lng: -186.3121})
 	}, 2000);
 }
 

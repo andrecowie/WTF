@@ -1,4 +1,4 @@
-#!/home/dre/github/WTF/venv/bin/python2
+#!/home/dre/github/WTF/www/venv/bin/python2
 
 # Author: 
 # Contact: grubert@users.sf.net

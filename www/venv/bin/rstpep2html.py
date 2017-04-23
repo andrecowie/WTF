@@ -1,4 +1,4 @@
-#!/home/dre/github/WTF/venv/bin/python2
+#!/home/dre/github/WTF/www/venv/bin/python2
 
 # $Id: rstpep2html.py 4564 2006-05-21 20:44:42Z wiemann $
 # Author: David Goodger <goodger@python.org>

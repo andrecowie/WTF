@@ -1,4 +1,4 @@
-#!/home/dre/github/WTF/venv/bin/python2
+#!/home/dre/github/WTF/www/venv/bin/python2
 
 # $Id: rst2latex.py 5905 2009-04-16 12:04:49Z milde $
 # Author: David Goodger <goodger@python.org>
