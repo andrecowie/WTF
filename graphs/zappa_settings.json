@@ -1,0 +1,10 @@
+{
+    "dev": {
+	"certificate_arn": "arn:aws:acm:us-east-1:152815608007:certificate/81b13155-db0b-4127-b5ed-7d1097e29869",
+	"domain" : "graphs.whosthefuture.me",
+        "app_function": "__init__.app", 
+        "aws_region": "ap-southeast-2", 
+        "profile_name": "default", 
+        "s3_bucket": "zappa-3zwpwxlrz"
+    }
+}
