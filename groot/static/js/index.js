@@ -1,3 +1,30 @@
+var talkToServer = function() {
+	var message = $('words').val();
+	console.log(message);
+}
+
+var focusing = function() {
+	console.log('focusing');
+	console.log(parseInt($('#youarediv').css('marginTop')));
+	var youAreDivHeight = parseInt($('#youarediv').css('marginTop'))+$('#youarediv').height();
+	var logoDiv = document.createElement("div");
+	logoDiv.setAttribute('id', "logoDiv");
+	logoDiv.setAttribute("style", 'height:'+youAreDivHeight+"px;display: block;");
+	var logoLink = document.createElement('a');
+	var logo = document.createElement('img');
+	logo.setAttribute('src',  '../static/$.png');
+	logo.setAttribute('height', ''+youAreDivHeight/2+"px");
+	logoLink.appendChild(logo);
+	var responderDiv = $("div").get(1);
+	var youardiv =  document.getElementById('youarediv');
+	var savedYouAreDiv = youarediv.clone(true);
+	responderDiv.replaceChild(logoDiv, youarediv);
+	logoDiv.appendChild(logoLink);
+	$("#words").focusout(function(){
+		responderDiv.replaceChild(savedYouAreDiv, logoDiv);
+	})
+}
+
 var formula = function(div) {
 	var enough = document.createElement('h4');
 	enough.setAttribute("style", "text-align: center; margin-top: " + (($(window).height() / 2) - 12) + "px");
@@ -17,9 +44,11 @@ var formula = function(div) {
 		input.setAttribute("class", "form-control");
 		input.setAttribute("style", "text-align:center;font-family: Ubuntu");
 		input.setAttribute("id", "words");
+		input.setAttribute("onfocus", "focusing()");
 		form.appendChild(input);
 		var youAreDiv = document.createElement('div');
 		youAreDiv.setAttribute("style", "margin-top: " + (($(window).height() / 2) - 30) + "px;height:20px;");
+		youAreDiv.setAttribute("id", "youarediv");
 		var youAre = document.createElement('h4');
 		youAre.setAttribute("style", "text-align:center;margin-top: " + (($(window).height() / 2) - 30) + "px;");
 		youAre.setAttribute("id", "youare");
@@ -42,7 +71,6 @@ var formula = function(div) {
 			typeSpeed: 35,
 			loop: true,
 			showCursor: false
-
 		});
 	}, 5000);
 }

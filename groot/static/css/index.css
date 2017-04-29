@@ -5,25 +5,23 @@ body
 }
 h3
 {
-	font-family: 'Tangerine','VT323', monospace;	
+	font-family: 'Tangerine','VT323', monospace;
 	color: rgb(232, 232, 232);
 	font-size: 48px;
 }
 h5
 {
-	font-family: 'VT323', monospace;	
+	font-family: 'VT323', monospace;
 	color: rgb(211, 211, 211);
 }
-h6{ 
-	font-family: 'VT323', monospace;	
+h6{
+	font-family: 'VT323', monospace;
 	color: rgb(200, 200, 200);
 }
-
-a[href^="http://maps.google.com/maps"]{display:none !important}
-a[href^="https://maps.google.com/maps"]{display:none !important}
-.gmnoprint a, .gmnoprint span, .gm-style-cc {
-    display:none;
+.form-control{
+	background-color: rgb(51, 51 ,51);
 }
-.gmnoprint div {
-    background:none !important;
+.form-control:focus{
+	border-color: #FFFFFF;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 1);
 }
