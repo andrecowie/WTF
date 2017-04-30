@@ -1,44 +1,96 @@
 var talkToServer = function() {
-    var message = $('words').val();
-    console.log(message);
+    var message = $('#words').val();
+    data = {
+        'message': message
+    }
+    $.ajax({
+        type: 'POST',
+        url: "/input",
+        contentType: 'application/json;charset=UTF-8',
+        data: JSON.stringify(data, null, '\t'),
+        success: function(result) {
+            console.log(result);
+        }
+    })
 }
 
 var focusing = function() {
     var youAreDivHeight = parseInt($('#youarediv').css('marginTop')) + $('#youarediv').height();
+
+    var sendDiv = document.createElement("div");
+    sendDiv.setAttribute('id', "sendDiv");
+
+    var sendBtn = document.createElement('input');
+    sendBtn.setAttribute("type", "submit");
+    sendBtn.setAttribute("class", "btn btn-success");
+    sendBtn.setAttribute("onclick", "talkToServer()");
+    sendDiv.appendChild(sendBtn);
+
     var logoDiv = document.createElement("div");
     logoDiv.setAttribute('id', "logoDiv");
     logoDiv.setAttribute("style", 'height:' + youAreDivHeight + "px;display: block;");
+
     var logoLink = document.createElement('a');
     logoLink.setAttribute("href", "https://www.whosthefuture.me");
     logoLink.setAttribute("style", "text-align: center;display:block;");
+
     var logo = document.createElement('img');
     logo.setAttribute('src', '../static/$.png');
     logo.setAttribute('style', "margin-top: -" + youAreDivHeight / 2 + "px;")
     logo.setAttribute('height', '' + youAreDivHeight / 2 + "px");
+
     logoLink.appendChild(logo);
+
     var responderDiv = $("div").get(1);
+
+
     logoDiv.appendChild(logoLink);
+
     var youarediv = $("#youarediv").detach();
-    console.log("Detaching: " + youarediv);
-		var test = document.getElementById("logoDiv");
-		if (typeof(test) != 'undefined' && test != null){
-		}else{
-				responderDiv.prepend(logoDiv);
-		}
+
+    var thefuturetext = $("#future").detach();
+
+    var responderDivHeight = responderDiv.clientHeight;
+
+    var buttonMarginSize = $(window).height() - responderDivHeight;
+    console.log(buttonMarginSize + ", " + $(window).height() + ", " + responderDivHeight);
+
+    sendDiv.setAttribute("style", "text-align: center;margin-top: " + buttonMarginSize / 2 + "px;");
+
+    console.log("Detaching: " + youarediv + thefuturetext);
+
+    var test = document.getElementById("logoDiv");
+
+    if (typeof(test) != 'undefined' && test != null) {} else {
+        responderDiv.prepend(logoDiv);
+    }
+    var testTwo = document.getElementById("sendDiv");
+    if (typeof(testTwo) != 'undefined' && testTwo != null) {} else {
+        responderDiv.append(sendDiv);
+    }
     $(logo).animate({
         'marginTop': '0px'
     }, 2000);
-		$("#words").focusout(function(){
-			$(logo).animate({
-				'marginTop' : '-'+youAreDivHeight/2+'px'
-			}, 2000);
-			setTimeout(function(){
-				logoDiv = document.getElementById("logoDiv");
-				responderDiv.removeChild(logoDiv);
-				responderDiv.prepend(youarediv[0]);
-			}, 2000);
+    $(sendDiv).animate({
+        'marginTop': '0px'
+    }, 2000);
+    $("#words").focusout(function() {
+        $(logo).animate({
+            'marginTop': '-' + youAreDivHeight / 2 + 'px'
+        }, 2000);
+        $(sendDiv).animate({
+            'marginTop': "" + buttonMarginSize / 2 + "px"
+        }, 2000);
+        setTimeout(function() {
+            logoDiv = document.getElementById("logoDiv");
+            responderDiv.removeChild(logoDiv);
+            responderDiv.prepend(youarediv[0]);
+            sendDiv = document.getElementById("sendDiv");
+            responderDiv.removeChild(sendDiv);
+            responderDiv.append(thefuturetext[0]);
+        }, 2000);
 
-		});
+    });
 }
 
 var formula = function(div) {

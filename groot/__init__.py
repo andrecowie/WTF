@@ -11,7 +11,9 @@ def index():
 @app.route('/input', methods=['POST'])
 def input():
 	if request.method == 'POST':
-		pass		
+		message = request.json['message']
+		if message in ['cute', 'professional', 'nz']:
+			return "GoodJob"
 	else:
 		return redirect(url_for('index'))
 
