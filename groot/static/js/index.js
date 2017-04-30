@@ -1,5 +1,46 @@
+var header = function(response){
+    console.log("Header");
+    var youAre = document.createElement('h4');
+    youAre.setAttribute("style", "text-align:center;position: absolute;bottom: 0;");
+    youAre.setAttribute("id", "youare");
+    var youAreDiv = document.getElementById("youarediv")
+    youAreDiv.appendChild(youAre);
+    $("#youare").typed({
+        strings: [response['header']],
+        typeSpeed: 35,
+        loop: false,
+        showCursor: false
+    });
+}
+
+var chatBody = function(response){
+    var future = document.createElement('h4');
+    future.setAttribute("style", "position: absolute");
+    future.setAttribute("id", "future");
+    $("div").get(1).appendChild(future);
+    $("#future").typed({
+        strings: [response['body']],
+        typeSpeed: 35,
+        loop: false,
+        showCursor: false
+    });
+}
+
 var talkToServer = function() {
+    var logo = document.getElementById("logo");
+    var sendDiv = document.getElementById("sendDiv");
+    $(logo).animate({
+        'marginTop': '-' + youAreDivHeight / 2 + 'px'
+    }, 2000);
+    $(sendDiv).animate({
+        'marginTop': "" + buttonMarginSize+ "px"
+    }, 2000);
+    setTimeout(function(){
+        logo.parentNode.parentNode.removeChild(logo.parentNode);
+        sendDiv.parentNode.removeChild(sendDiv);
+    }, 2000);
     var message = $('#words').val();
+    console.log(message);
     data = {
         'message': message
     }
@@ -9,32 +50,58 @@ var talkToServer = function() {
         contentType: 'application/json;charset=UTF-8',
         data: JSON.stringify(data, null, '\t'),
         success: function(result) {
-            console.log(result);
+            var response = JSON.parse(result);
+            console.log(response);
+            if('header' in response && 'body' in response){
+                header(response);
+                if('timeoutBody' in response){
+                    console.log('timeoutBody');
+                    setTimeout(function(){
+                        chatBody(response);
+                    }, parseInt(response['timeoutBody']))
+                }
+            }
+            else if ('header' in response){
+                header(response);
+            }
+            else if ('body' in response){
+                chatBody(response);
+            }
         }
     })
 }
+var buttonMarginSize;
+var youAreDivHeight;
+
 
 var focusing = function() {
-    var youAreDivHeight = parseInt($('#youarediv').css('marginTop')) + $('#youarediv').height();
+    $("#words").keypress(function(event){
+        console.log("keyup");
+        if(event.keyCode == 13){
+            event.preventDefault();
+            $("#sendBtn").click();
+            return false;
+        }
+    })
+    console.log("Focusing");
+    youAreDivHeight = parseInt($('#youarediv').css('marginTop')) + $('#youarediv').height();
 
     var sendDiv = document.createElement("div");
     sendDiv.setAttribute('id', "sendDiv");
 
-    var sendBtn = document.createElement('input');
-    sendBtn.setAttribute("type", "submit");
+    var sendBtn = document.createElement('button');
+    sendBtn.setAttribute("type", "button");
+    sendBtn.setAttribute("id", "sendBtn");
     sendBtn.setAttribute("class", "btn btn-success");
     sendBtn.setAttribute("onclick", "talkToServer()");
     sendDiv.appendChild(sendBtn);
-
-    var logoDiv = document.createElement("div");
-    logoDiv.setAttribute('id', "logoDiv");
-    logoDiv.setAttribute("style", 'height:' + youAreDivHeight + "px;display: block;");
 
     var logoLink = document.createElement('a');
     logoLink.setAttribute("href", "https://www.whosthefuture.me");
     logoLink.setAttribute("style", "text-align: center;display:block;");
 
     var logo = document.createElement('img');
+    logo.setAttribute('id', "logo");
     logo.setAttribute('src', '../static/$.png');
     logo.setAttribute('style', "margin-top: -" + youAreDivHeight / 2 + "px;")
     logo.setAttribute('height', '' + youAreDivHeight / 2 + "px");
@@ -43,26 +110,20 @@ var focusing = function() {
 
     var responderDiv = $("div").get(1);
 
+    $("#youare").remove();
 
-    logoDiv.appendChild(logoLink);
-
-    var youarediv = $("#youarediv").detach();
-
-    var thefuturetext = $("#future").detach();
-
+    $("#future").remove();
+    $("#youarediv").css({"height" : ""+youAreDivHeight+"px", "marginTop" : "0px"});
     var responderDivHeight = responderDiv.clientHeight;
 
-    var buttonMarginSize = $(window).height() - responderDivHeight;
-    console.log(buttonMarginSize + ", " + $(window).height() + ", " + responderDivHeight);
+    buttonMarginSize = $(window).height() - responderDivHeight;
 
-    sendDiv.setAttribute("style", "text-align: center;margin-top: " + buttonMarginSize / 2 + "px;");
+    sendDiv.setAttribute("style", "text-align: center;margin-top: " + buttonMarginSize + "px;");
 
-    console.log("Detaching: " + youarediv + thefuturetext);
-
-    var test = document.getElementById("logoDiv");
+    var test = document.getElementById("logo");
 
     if (typeof(test) != 'undefined' && test != null) {} else {
-        responderDiv.prepend(logoDiv);
+        youarediv.appendChild(logoLink);
     }
     var testTwo = document.getElementById("sendDiv");
     if (typeof(testTwo) != 'undefined' && testTwo != null) {} else {
@@ -74,23 +135,6 @@ var focusing = function() {
     $(sendDiv).animate({
         'marginTop': '0px'
     }, 2000);
-    $("#words").focusout(function() {
-        $(logo).animate({
-            'marginTop': '-' + youAreDivHeight / 2 + 'px'
-        }, 2000);
-        $(sendDiv).animate({
-            'marginTop': "" + buttonMarginSize / 2 + "px"
-        }, 2000);
-        setTimeout(function() {
-            logoDiv = document.getElementById("logoDiv");
-            responderDiv.removeChild(logoDiv);
-            responderDiv.prepend(youarediv[0]);
-            sendDiv = document.getElementById("sendDiv");
-            responderDiv.removeChild(sendDiv);
-            responderDiv.append(thefuturetext[0]);
-        }, 2000);
-
-    });
 }
 
 var formula = function(div) {
@@ -115,7 +159,7 @@ var formula = function(div) {
         input.setAttribute("onfocus", "focusing()");
         form.appendChild(input);
         var youAreDiv = document.createElement('div');
-        youAreDiv.setAttribute("style", "margin-top: " + (($(window).height() / 2) - 30) + "px;height:20px;");
+        youAreDiv.setAttribute("style", "margin-top: " + (($(window).height() / 2) - 30) + "px;height:20px;position: relative;");
         youAreDiv.setAttribute("id", "youarediv");
         var youAre = document.createElement('h4');
         youAre.setAttribute("style", "text-align:center;margin-top: " + (($(window).height() / 2) - 30) + "px;");

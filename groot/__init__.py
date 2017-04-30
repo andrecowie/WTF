@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, url_for, redirect, session
+import json
 import os
 from datetime import datetime
 
@@ -13,7 +14,7 @@ def input():
 	if request.method == 'POST':
 		message = request.json['message']
 		if message in ['cute', 'professional', 'nz']:
-			return "GoodJob"
+			return json.dumps({"header": 'Hey if you are what you say you are...', "body" : "I'd come back in a week or so.", "timeoutBody": 2000})
 	else:
 		return redirect(url_for('index'))
 
