@@ -3,7 +3,11 @@
         "app_function": "__init__.app",
         "certificate_arn": "arn:aws:acm:us-east-1:152815608007:certificate/aade57c2-a618-4e9a-8d2d-3a5561b7d570",
         "domain": "whosthefuture.me",
-        "aws_region": "ap-southeast-2", 
-        "s3_bucket": "zappa-bly6nce43"
+        "aws_region": "ap-southeast-2",
+        "s3_bucket": "zappa-bly6nce43",
+				"vpc_config" : {
+					"SubnetIds" : [ "subnet-a91c55cd", "subnet-fb57258d"],
+					"SecurityGroupIds" : [ "sg-30790c57" ]
+				}
     }
 }
