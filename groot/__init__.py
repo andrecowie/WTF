@@ -5,6 +5,7 @@ import boto3
 from pytz import timezone
 import pytz
 from datetime import datetime
+from geoip import geolite2
 from pynamodb.models import Model
 from pynamodb.attributes import UnicodeAttribute, NumberAttribute
 import random
@@ -19,6 +20,8 @@ class Visitor(Model):
     sessionId = NumberAttribute()
     ipAddr = UnicodeAttribute()
     inputMsg = UnicodeAttribute(null=True)
+    country = UnicodeAttribute(null=True)
+    continent = UnicodeAttribute(null=True)
 
 @app.route('/', methods=['GET'])
 def index():
@@ -27,7 +30,10 @@ def index():
     time = timezone('Pacific/Auckland')
     x = datetime.now(tz=time)
     visitoridfield = str(x.day) + "/"+ str(x.month) +" - " + str(x.hour) + "."+ str(x.minute)+"."+str(x.second)+"."+str(random.randint(1, 200))
-    Visitor(visitoridfield, sessionId=random.randint(1,100),ipAddr=str(request.environ['REMOTE_ADDR'])).save()
+    local = str(request.environ['REMOTE_ADDR'])
+    location = geolite2.lookup(local)
+    Visitor(visitoridfield, sessionId=random.randint(1,100),ipAddr=local, country=location.country,continent=location.continent).save()
+
     return render_template('index.html')
 
 @app.route('/input', methods=['POST'])
@@ -39,9 +45,25 @@ def input():
                 time = timezone('Pacific/Auckland')
                 x = datetime.now(tz=time)
                 visitoridfield = str(x.day) + "/"+ str(x.month) +" - " + str(x.hour) + "."+ str(x.minute)+"."+str(x.second)+"."+str(random.randint(1, 200))
-                Visitor(visitoridfield, sessionId=random.randint(1,100),ipAddr=str(request.environ['REMOTE_ADDR']), inputMsg=str(message)).save()
-		if message in ['cute', 'professional', 'nz']:
-			return json.dumps({"header": 'Hey if you are what you say you are...', "body" : "I'd come back in a week or so.", "timeoutBody": 2000})
+                local = str(request.environ['REMOTE_ADDR'])
+                location = geolite2.lookup(local)
+                Visitor(visitoridfield, sessionId=random.randint(1,100),ipAddr=local, country=location.country,continent=location.continent, inputMsg=message).save()
+                items = {
+                    'cute': {
+                    'header':"I'm looking for someone that is what you say you are.",
+                    'body':["Plus a few other qualities."],
+                    'timeoutBody':2000,
+                    'newInput': True,
+                    'endpoint': '/cute'
+                    },
+                    'professional' : {
+                        'header': 'A fellow pro, collaboration is key.',
+                        'body': ['I assume you would like to see us working together.','Me too.'],
+                        'timeoutBody':2000
+                    }
+                }
+		if message in items:
+			return json.dumps(items[message])
 	else:
 		return redirect(url_for('index'))
 

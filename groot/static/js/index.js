@@ -19,7 +19,7 @@ var chatBody = function(response){
     future.setAttribute("id", "future");
     $("div").get(1).appendChild(future);
     $("#future").typed({
-        strings: [response['body']],
+        strings: response['body'],
         typeSpeed: 35,
         loop: false,
         showCursor: false
