@@ -1,13 +1,17 @@
+var participation = function(){
+    $('body').css('background-color', 'white');
+}
+
 var header = function(response){
-    console.log("Header");
     var youAre = document.createElement('h4');
-    youAre.setAttribute("style", "text-align:center;position: absolute;bottom: 0;");
+    youAre.setAttribute("style", "text-align:center;margin:"+(($(window).height() / 2) - 19)+"px auto 0 auto;");
     youAre.setAttribute("id", "youare");
     var youAreDiv = document.getElementById("youarediv")
-    youAreDiv.appendChild(youAre);
+    youAreDiv.parentNode.insertBefore(youAre,youAreDiv.parentNode.firstChild);
+    youAreDiv.parentNode.removeChild(youAreDiv);
     $("#youare").typed({
-        strings: [response['header']],
-        typeSpeed: 35,
+        strings: response['header'],
+        typeSpeed: 10,
         loop: false,
         showCursor: false
     });
@@ -15,15 +19,16 @@ var header = function(response){
 
 var chatBody = function(response){
     var future = document.createElement('h4');
-    future.setAttribute("style", "position: absolute");
+    future.setAttribute("style", "position:relative:margin:0 auto;text-align:center;");
     future.setAttribute("id", "future");
-    $("div").get(1).appendChild(future);
+    $(future).insertAfter("#youare");
     $("#future").typed({
         strings: response['body'],
-        typeSpeed: 35,
+        typeSpeed: 0,
         loop: false,
         showCursor: false
     });
+    setTimeout(participation(), 3000);
 }
 
 var talkToServer = function() {
@@ -40,7 +45,8 @@ var talkToServer = function() {
         sendDiv.parentNode.removeChild(sendDiv);
     }, 2000);
     var message = $('#words').val();
-    console.log(message);
+    var inputWords = $('#words').get(0);
+    inputWords.parentNode.removeChild(inputWords);
     data = {
         'message': message
     }
@@ -51,14 +57,14 @@ var talkToServer = function() {
         data: JSON.stringify(data, null, '\t'),
         success: function(result) {
             var response = JSON.parse(result);
-            console.log(response);
             if('header' in response && 'body' in response){
                 header(response);
                 if('timeoutBody' in response){
-                    console.log('timeoutBody');
                     setTimeout(function(){
                         chatBody(response);
                     }, parseInt(response['timeoutBody']))
+                }else{
+                    chatBody(response);
                 }
             }
             else if ('header' in response){
@@ -76,14 +82,13 @@ var youAreDivHeight;
 
 var focusing = function() {
     $("#words").keypress(function(event){
-        console.log("keyup");
         if(event.keyCode == 13){
             event.preventDefault();
             $("#sendBtn").click();
+            document.activeElement.blur();
             return false;
         }
     })
-    console.log("Focusing");
     youAreDivHeight = parseInt($('#youarediv').css('marginTop')) + $('#youarediv').height();
 
     var sendDiv = document.createElement("div");
@@ -92,7 +97,8 @@ var focusing = function() {
     var sendBtn = document.createElement('button');
     sendBtn.setAttribute("type", "button");
     sendBtn.setAttribute("id", "sendBtn");
-    sendBtn.setAttribute("class", "btn btn-success");
+    sendBtn.setAttribute("class", "btn");
+    sendBtn.innerHTML = "?";
     sendBtn.setAttribute("onclick", "talkToServer()");
     sendDiv.appendChild(sendBtn);
 
@@ -187,7 +193,6 @@ var formula = function(div) {
     }, 5000);
 }
 $(document).ready(function() {
-    console.log("Ready!");
     var hello = document.createElement("h3");
     hello.setAttribute("style", "text-align: center;margin-top: " + (($(window).height() / 2) - 24) + "px;");
     hello.setAttribute("id", "hello");

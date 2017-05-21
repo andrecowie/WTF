@@ -5,6 +5,5 @@
         "domain": "whosthefuture.me",
         "aws_region": "ap-southeast-2",
         "s3_bucket": "zappa-bly6nce43",
-	"vpc_config" : {"SubnetIds" : [ "subnet-a91c55cd", "subnet-fb57258d"],"SecurityGroupIds" : [ "sg-30790c57" ]}
     }
 }
