@@ -91,7 +91,8 @@ def input():
 			'default' :{
 				'header': ['You take the Red Pill.'],
 				'body': ['You stay in wonderland and I show you how deep the rabbit-hole goes.'],
-				'timeoutBody':4000
+				'timeoutBody':4000,
+				'default': True
 			}
 		}
 		if message in items:

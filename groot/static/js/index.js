@@ -1,14 +1,48 @@
-var participation = function(){
-    $('body').css('background-color', 'white');
+var movingRightAlong = function(){
+        $('#moveon').fadeOut("slow", function(){
+            $('#moveon').remove();
+        })
 }
 
-var header = function(response){
+var redpillCond;
+var participation = function() {
+    $('body').css('background-color', 'white');
+    if (redpillCond) {
+        var redpill = document.createElement("img");
+        console.log("Redpill");
+        redpill.src = "../static/redpill.png";
+        redpill.setAttribute("id", "redpill");
+        if ($(window).width() > 1200) {
+            redpill.setAttribute("height", "30px");
+            redpill.setAttribute("style", "position: absolute;left:50%;margin-left:-30px");
+        } else if ($(window).width() > 992) {
+            redpill.setAttribute("height", "20px");
+            redpill.setAttribute("style", "position: absolute;left:50%;margin-left:-15px");
+        } else if ($(window).width() > 768) {
+            redpill.setAttribute("height", "10px");
+            redpill.setAttribute("style", "position: absolute;left:50%;margin-left:-5px");
+        } else if ($(window).width() > 576) {
+            redpill.setAttribute("height", "10px");
+            redpill.setAttribute("style", "position: absolute;left:50%;margin-left:-5px");
+        }
+        redpill.setAttribute("alt", "redpill");
+        var redpillDiv = document.createElement("div");
+        redpillDiv.setAttribute('id', "redpillDiv");
+        redpillDiv.appendChild(redpill);
+        $(redpillDiv).insertAfter("#future");
+    } else {
+
+    }
+}
+
+var header = function(response) {
     var youAre = document.createElement('h4');
-    youAre.setAttribute("style", "text-align:center;margin:"+(($(window).height() / 2) - 19)+"px auto 0 auto;");
+    youAre.setAttribute("style", "text-align:center;margin:" + (($(window).height() / 2) - 19) + "px auto 0 auto;");
     youAre.setAttribute("id", "youare");
     var youAreDiv = document.getElementById("youarediv")
-    youAreDiv.parentNode.insertBefore(youAre,youAreDiv.parentNode.firstChild);
+    youAreDiv.parentNode.insertBefore(youAre, youAreDiv.parentNode.firstChild);
     youAreDiv.parentNode.removeChild(youAreDiv);
+    $("form").remove();
     $("#youare").typed({
         strings: response['header'],
         typeSpeed: 10,
@@ -17,7 +51,7 @@ var header = function(response){
     });
 }
 
-var chatBody = function(response){
+var chatBody = function(response) {
     var future = document.createElement('h4');
     future.setAttribute("style", "position:relative:margin:0 auto;text-align:center;");
     future.setAttribute("id", "future");
@@ -26,7 +60,8 @@ var chatBody = function(response){
         strings: response['body'],
         typeSpeed: 0,
         loop: false,
-        showCursor: false
+        showCursor: false,
+        callback: function(){movingRightAlong()}
     });
     setTimeout(participation(), 3000);
 }
@@ -38,9 +73,9 @@ var talkToServer = function() {
         'marginTop': '-' + youAreDivHeight / 2 + 'px'
     }, 2000);
     $(sendDiv).animate({
-        'marginTop': "" + buttonMarginSize+ "px"
+        'marginTop': "" + buttonMarginSize + "px"
     }, 2000);
-    setTimeout(function(){
+    setTimeout(function() {
         logo.parentNode.parentNode.removeChild(logo.parentNode);
         sendDiv.parentNode.removeChild(sendDiv);
     }, 2000);
@@ -57,20 +92,25 @@ var talkToServer = function() {
         data: JSON.stringify(data, null, '\t'),
         success: function(result) {
             var response = JSON.parse(result);
-            if('header' in response && 'body' in response){
+            if ('default' in response) {
+                console.log("Red True");
+                redpillCond = true;
+            } else {
+                console.log("Red False");
+                redpillCond = false;
+            }
+            if ('header' in response && 'body' in response) {
                 header(response);
-                if('timeoutBody' in response){
-                    setTimeout(function(){
+                if ('timeoutBody' in response) {
+                    setTimeout(function() {
                         chatBody(response);
                     }, parseInt(response['timeoutBody']))
-                }else{
+                } else {
                     chatBody(response);
                 }
-            }
-            else if ('header' in response){
+            } else if ('header' in response) {
                 header(response);
-            }
-            else if ('body' in response){
+            } else if ('body' in response) {
                 chatBody(response);
             }
         }
@@ -81,8 +121,8 @@ var youAreDivHeight;
 
 
 var focusing = function() {
-    $("#words").keypress(function(event){
-        if(event.keyCode == 13){
+    $("#words").keypress(function(event) {
+        if (event.keyCode == 13) {
             event.preventDefault();
             $("#sendBtn").click();
             document.activeElement.blur();
@@ -119,7 +159,10 @@ var focusing = function() {
     $("#youare").remove();
 
     $("#future").remove();
-    $("#youarediv").css({"height" : ""+youAreDivHeight+"px", "marginTop" : "0px"});
+    $("#youarediv").css({
+        "height": "" + youAreDivHeight + "px",
+        "marginTop": "0px"
+    });
     var responderDivHeight = responderDiv.clientHeight;
 
     buttonMarginSize = $(window).height() - responderDivHeight;
@@ -198,7 +241,8 @@ $(document).ready(function() {
     hello.setAttribute("id", "hello");
     var div = document.createElement("div");
     var startdiv = $("div").get(0);
-    div.setAttribute("class", "col-xl-6 col-xl-offset-3 col-md-8 col-md-offset-2 col-sm-12 col-xs-12");
+    div.setAttribute("class", "col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-12 col-xs-12");
+    div.setAttribute("id","moveon");
     div.appendChild(hello);
     startdiv.appendChild(div);
     $("#hello").typed({
