@@ -1,7 +1,7 @@
-var movingRightAlong = function(){
-        $('#moveon').fadeOut("slow", function(){
-            $('#moveon').remove();
-        })
+var movingRightAlong = function() {
+    $('#moveon').fadeOut("slow", function() {
+        $('#moveon').remove();
+    })
 }
 
 var redpillCond;
@@ -47,7 +47,10 @@ var header = function(response) {
         strings: response['header'],
         typeSpeed: 10,
         loop: false,
-        showCursor: false
+        showCursor: false,
+        callback: function() {
+            chatBody(response)
+        }
     });
 }
 
@@ -61,9 +64,11 @@ var chatBody = function(response) {
         typeSpeed: 0,
         loop: false,
         showCursor: false,
-        callback: function(){movingRightAlong()}
+        callback: function() {
+            movingRightAlong()
+        }
     });
-    setTimeout(participation(), 3000);
+    participation()
 }
 
 var talkToServer = function() {
@@ -92,6 +97,7 @@ var talkToServer = function() {
         data: JSON.stringify(data, null, '\t'),
         success: function(result) {
             var response = JSON.parse(result);
+            console.log(response)
             if ('default' in response) {
                 console.log("Red True");
                 redpillCond = true;
@@ -99,19 +105,8 @@ var talkToServer = function() {
                 console.log("Red False");
                 redpillCond = false;
             }
-            if ('header' in response && 'body' in response) {
+            if ('header' in response) {
                 header(response);
-                if ('timeoutBody' in response) {
-                    setTimeout(function() {
-                        chatBody(response);
-                    }, parseInt(response['timeoutBody']))
-                } else {
-                    chatBody(response);
-                }
-            } else if ('header' in response) {
-                header(response);
-            } else if ('body' in response) {
-                chatBody(response);
             }
         }
     })
@@ -242,7 +237,7 @@ $(document).ready(function() {
     var div = document.createElement("div");
     var startdiv = $("div").get(0);
     div.setAttribute("class", "col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-12 col-xs-12");
-    div.setAttribute("id","moveon");
+    div.setAttribute("id", "moveon");
     div.appendChild(hello);
     startdiv.appendChild(div);
     $("#hello").typed({
